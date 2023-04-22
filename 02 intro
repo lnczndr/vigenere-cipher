@@ -4,6 +4,8 @@
 user = input("Enter username: ")
 print ("\nWelcome to the program " + user, "!")
 
+print ("PROGRAM #3: VIGENERE CIPHER".center(50,("-")))
+
 #assigning variables
 #splitting message to key's length
 #ciphering the message, then adding the key
