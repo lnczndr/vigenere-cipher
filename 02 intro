@@ -1,0 +1,15 @@
+#LEGASPI, LANA CAZANDRA U. - BSCPE 1-5
+
+#intro
+user = input("Enter username: ")
+print ("\nWelcome to the program " + user, "!")
+
+#assigning variables
+#splitting message to key's length
+#ciphering the message, then adding the key
+#splitting the cipher to key's length
+#making cipher to message, then subtracting the key
+#assigning key and message
+#printing output
+#outro
+#adding loop (to ask the user if they want to use the program again)
