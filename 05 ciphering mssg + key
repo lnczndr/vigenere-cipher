@@ -1,0 +1,38 @@
+#LEGASPI, LANA CAZANDRA U. - BSCPE 1-5
+
+#intro
+user = input("Enter username: ")
+print ("\nWelcome to the program " + user, "!")
+
+print ("PROGRAM #3: VIGENERE CIPHER".center(50,("-")))
+
+#assigning variables
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+letters_to_ciphered = dict(zip(alphabet, range (len(alphabet))))
+ciphered_to_letters = dict(zip(range(len(alphabet)), alphabet))
+
+def encrypt (message, key):
+    encrypted = ""
+
+#splitting message to key's length
+    split_mssg = [message[i:i + len(key)]for i in range (0, len(message),len (key))]
+
+#ciphering the message, then adding the key
+    for each_split in split_mssg:
+        i = 0
+        for letter in each_split:
+            number = (letters_to_ciphered[letter] + letters_to_ciphered[key[i]]) % len(alphabet)
+            encrypted += ciphered_to_letters[number]     
+            i += 1
+    return encrypted
+        
+def decrypt (cipher, key):
+    decrypted = ""
+
+#splitting the cipher to key's length
+#making cipher to message, then subtracting the key
+#assigning key and message
+#printing output
+#outro
+#adding loop (to ask the user if they want to use the program again)
