@@ -1,0 +1,69 @@
+#LEGASPI, LANA CAZANDRA U. - BSCPE 1-5
+
+moredata = "yes"
+while moredata == "yes":
+
+    #intro
+    user = input("Enter username: ")
+    print ("\nWelcome to the program " + user, "!")
+
+    print ("PROGRAM #3: VIGENERE CIPHER".center(50,("-")))
+
+    #assigning variables
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+    letters_to_ciphered = dict(zip(alphabet, range (len(alphabet))))
+    ciphered_to_letters = dict(zip(range(len(alphabet)), alphabet))
+
+    def encrypt (message, key):
+        
+        encrypted = ""
+
+        #splitting message to key's length
+        split_mssg = [message[i:i + len(key)]for i in range (0, len(message),len (key))]
+
+        #ciphering the message, then adding the key
+        for each_split in split_mssg:
+            i = 0
+            for letter in each_split:
+                number = (letters_to_ciphered[letter] + letters_to_ciphered[key[i]]) % len(alphabet)
+                encrypted += ciphered_to_letters[number]     
+                i += 1
+
+        return encrypted
+        
+    def decrypt (cipher, key):
+        decrypted = ""
+        
+        #splitting the cipher to key's length
+        split_cipher = [cipher [i:i + len(key)]for i in range(0, len(cipher),len(key))]
+
+        #making cipher into message, then subtracting the key]
+        for each_split in split_cipher:
+            i = 0
+            for letter in each_split:
+                number = (letters_to_ciphered[letter] - letters_to_ciphered[key[i]]) % len (alphabet)
+                decrypted += ciphered_to_letters[number]
+                i += 1
+
+        return decrypted
+    
+    #assigning key and message
+    def main ():
+        key= 'TICKET'
+        message = "THISISTHELASTTASKHOORDAY"
+        encrypted_mssg = encrypt (message, key)
+        decrypted_mssg = decrypt (encrypted_mssg, key)
+
+        #printing output
+        print ("Original Message: " + message)
+        print ("Encrytpted Message: " + encrypted_mssg)
+        print ("Decrypted Message: " + decrypted_mssg)
+
+    main()
+
+    #outro
+    print ("\nNOTE: If you wanted to run the program again, strictly answer 'yes' in lowercase. Failure to do so will end the program.\n")
+    
+    #adding loop (to ask the user if they want to use the program again)
+    moredata = str(input("Would you like to run the program again?: "))
